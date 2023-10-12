@@ -8,7 +8,7 @@
 
 ## Installation
 
-Download the repository files to your computer, and extract the zipped files to a dedicated folder. Navigate to the folder, and rename the ".env.EXAMPLE" file to ".env", and then fill in the empty strings with the appropriate details. DB_USER should contain your MySQL username, DB_PASSWORD your password, and DB_NAME the name of the database to use - in this case, it is already named for you; "ecommerce_db".
+Download the repository files to your computer, and extract the zipped files to a dedicated folder. Navigate to the folder, rename the ".env.EXAMPLE" file to ".env", and fill in the empty strings with the appropriate details. DB_USER should contain your MySQL username, DB_PASSWORD your password, and DB_NAME the name of the database to use - in this case, it is already filled in for you; "ecommerce_db".
 
 ## Requirements
 
@@ -17,13 +17,13 @@ Download the repository files to your computer, and extract the zipped files to 
 
 ## Usage
 
-Navigate to the repository a git bash shell (or equivalent), and type "npm install" to install the application's dependencies. Next, initiate the MySQL CLI & run the command "source ./db/schema.sql" to initialize the database. Finally, return the the shell and type "node server.js" to start up the application. If you want the database to be seeded with some sample information, then you can also type "npm run seed" before running the server.js file.
+Navigate to the repository a git bash shell (or equivalent), and type "npm install" to install the application's dependencies. Next, initiate the MySQL CLI & run the command "source ./db/schema.sql" to initialize the database. Finally, return to the shell and type "node server.js" to start up the application. If you want the database to be seeded with some sample information, then you can also type "npm run seed" before running the server.js file.
 
 ***[USAGE GUIDE]***
 
 ## Demo
 
-See a video demonstrating the application's functionality [here](https://drive.google.com/file/d/12SnqiEOu8HYwEJH0NTcpslRvM-v49KRt/view?usp=sharing)
+See a video demonstrating the application's functionality [here](https://drive.google.com/file/d/1fEBOiavWjeY6rKmWkxgM7BQAxiEH9vX0/view?usp=sharing)
 
 ## Credits
 

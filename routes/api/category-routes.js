@@ -94,6 +94,7 @@ router.delete('/:id', async (req, res) =>
   {
     const categoryData = await Category.destroy({where: {id: req.params.id}});
 
+    //return a 404 status error if a category could not be found with the requested ID
     if (!categoryData)
     {
       res.status(404).json("Could not find a category with that ID");
