@@ -1,3 +1,10 @@
+/*
+ethan (average-kirigiri-enjoyer)
+SCS Boot Camp Module 13 Weekly Challenge - E-Commerce Back-End
+Created 2023/10/11
+Last Edited 2023/10/11
+*/
+
 const express = require('express');
 const routes = require('./routes');
 // import sequelize connection
