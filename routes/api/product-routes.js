@@ -11,15 +11,41 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
+  try
+  {
+    const productData = await Product.findAll({include: [{model: Category}, {model: Tag}]});
+    res.status(200).json(productData);
+  }
+  catch (err) //if an internal server error occurs, responds with a status of 500 alongside the error's JSON data
+  {
+    res.status(500).json(err);
+  }
 });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
+  try
+  {
+    const productData = await Product.findByPk(req.params.id, {include: [{model: Category}, {model: Tag}]});
+
+    //return a 404 status error if a product could not be found with the requested ID
+    if (!productData)
+    {
+      res.status(404).json("Could not find a product with that ID");
+      return;
+    }
+
+    res.status(200).json(productData);
+  }
+  catch (err) //if an internal server error occurs, responds with a status of 500 alongside the error's JSON data
+  {
+    res.status(500).json(err);
+  }
 });
 
 // create new product
@@ -99,8 +125,25 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
+  try
+  {
+    const productData = await Product.destroy({where: {id: req.params.id}});
+
+    //return a 404 status error if a product could not be found with the requested ID
+    if (!productData)
+    {
+      res.status(404).json("Could not find a product with that ID");
+      return;
+    }
+
+    res.status(200).json(productData);
+  }
+  catch (err) //if error occurs while trying to delete a product, responds with a status of 500 alongside the error's JSON data
+  {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
